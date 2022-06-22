@@ -1,10 +1,15 @@
 let color = "black";
 
+const colorPicker = document.getElementById("colorPicker");
+const sizeValue = document.getElementById("sizeValue");
+
+colorPicker.oninput = (e) => changeColor(e.target.value);
+
 function makeBoard(size) {
     let board_div = document.querySelector(".board");
     board_div.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
     board_div.style.gridTemplateRows = `repeat(${size}, 1fr)`;
-    let squares = board_div.querySelectorAll("div")
+    let squares = board_div.querySelectorAll("div");
     squares.forEach((div) => div.remove());
 
     let total = size * size;
@@ -20,10 +25,15 @@ function makeBoard(size) {
 function changeSize(num) {
     if (num >= 2 && num <= 100) {
         makeBoard(num);
+        updateSizeValue(num);
     }
     else {
         console.log("Too many or too little squares")
     }
+}
+
+function updateSizeValue(num) {
+    sizeValue.textContent = `${num} x ${num}`
 }
 
 function colorSquare() {
@@ -34,9 +44,7 @@ function colorSquare() {
 }
 
 function changeColor(choice) {
-
     color = choice;
-
 }
 
 function resetBoard() {

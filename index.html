@@ -14,9 +14,16 @@
 <body>
     <div class="flex-container">
         <div class="title">
-            <h1>Odin Project : EAS </h1>
+            <h1>Odin Project: EAS</h1>
         </div>
         <div class="content">
+            <div class="pixelSize">
+                <p>Pixel Size:</p>
+                <div class="sizeSlider">
+                    <input type="range" value="16" min="2" max="100" onchange="changeSize(this.value)" />
+                    <div id="sizeValue">16x16</div>
+                </div>
+            </div>
             <div id="etchmachine">
                 <p>Etch-A-Sketch</p>
                 <div class="board"></div>
@@ -31,8 +38,14 @@
                 <button onclick="changeColor('random')">Random</button>
                 <button onclick="resetBoard()">Reset</button>
             </div>
-            <input type="text" placeholder="Size of Board" value="16" onchange="changeSize(this.value)" />
+            <div class="color-picker">
+                <p>Choose Color:</p>
+                <input type="color" value="red" id="colorPicker">
+            </div>
         </div>
+    </div>
+    <div class="footer">
+        Copyright © Rodolfo Ortega 2022 All Rights Reserved
     </div>
 </body>
 
